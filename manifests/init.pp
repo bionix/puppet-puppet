@@ -50,7 +50,6 @@ class puppet (
   $ensure               = installed,
   $puppetserver         = "puppet.${::domain}",
   $puppetenvironment    = 'production',
-  $puppetcronminute     = fqdn_rand(30),
 ) {
 
   case $::operatingsystem {
@@ -69,7 +68,6 @@ class puppet (
   class { 'puppet::cron':
     puppetserver        => $puppetserver,
     puppetenvironment   => $puppetenvironment,
-    puppetcronminute    => $puppetcronminute,
   }
   class { 'puppet::service': }
 }
