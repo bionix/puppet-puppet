@@ -7,7 +7,7 @@ class puppet::cron (
 ){
   cron { 'puppet':
     ensure  => present,
-    command => "puppet agent --onetime --no-daemonize --environment ${puppetenvironment} --fqdn ${::fqdn} --server ${puppetserver} --logdest syslog > /dev/null 2>&1"
+    command => "puppet agent --onetime --no-daemonize --environment ${puppetenvironment} --fqdn ${::fqdn} --server ${puppetserver} --logdest syslog > /dev/null 2>&1",
     user    => 'root',
     minute  => [ $puppetcronminute, $puppetcronminute1 ],
   }
