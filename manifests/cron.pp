@@ -2,8 +2,8 @@
 class puppet::cron (
     $puppetserver       = undef,
     $puppetenvironment  = undef,
-    $puppetcronminute   = fqdn_rand(30),
 ){
+    $puppetcronminute   = fqdn_rand(30),
     $puppetcronminute1  = ${puppetcronminute} + 30,
   cron { 'puppet':
     ensure  => present,
